@@ -1,10 +1,7 @@
-fastapi==0.110.0
-uvicorn[standard]==0.29.0
+fastapi
+uvicorn[standard]
 mlflow==2.2.2
-numpy==1.26.4
-pydantic==1.10.13
-python-dotenv==1.0.1
-scikit-learn==1.4.2
+scikit-learn
 pandas
 matplotlib
 pytest
