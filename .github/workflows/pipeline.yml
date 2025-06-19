@@ -39,7 +39,7 @@ jobs:
           pytest test_train.py -p no:warnings
 
   check_python_code_style_job:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
         with:
@@ -62,7 +62,7 @@ jobs:
           pycodestyle . --ignore=E501
 
   train_job:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     needs: [unitary_test_job, check_python_code_style_job]
     steps:
       - uses: actions/checkout@v1
@@ -86,7 +86,7 @@ jobs:
           python train.py 
 
   build_image:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     needs: [train_job]
     steps:
       - uses: actions/checkout@v2
