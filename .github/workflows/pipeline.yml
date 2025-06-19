@@ -23,7 +23,7 @@ jobs:
       - name: Set up Python 3.10
         uses: actions/setup-python@v3
         with:
-          python-version: 3.10
+          python-version: 3.14.0-beta.2
           cache: "pip"
         env:
           AGENT_TOOLSDIRECTORY: /opt/hostedtoolcache
@@ -45,9 +45,12 @@ jobs:
           fetch-depth: 0
 
       - name: Set up Python 3.10
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v3
         with:
-          python-version: 3.10.14
+          python-version: 3.14.0-beta.2
+          cache: "pip"
+        env:
+          AGENT_TOOLSDIRECTORY: /opt/hostedtoolcache
 
       - name: Install dependencies
         run: |
