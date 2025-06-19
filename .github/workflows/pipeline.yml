@@ -21,10 +21,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up Python 3.10.14
+      - name: Set up Python 3.9.x
         uses: actions/setup-python@v3
         with:
-          python-version: 3.10.14
+          python-version: 3.9.x
 
         env:
           AGENT_TOOLSDIRECTORY: /opt/hostedtoolcache
@@ -45,10 +45,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up Python 3.10.14
+      - name: Set up Python 3.9.x
         uses: actions/setup-python@v3
         with:
-          python-version: 3.10.14
+          python-version: 3.9.x
         env:
           AGENT_TOOLSDIRECTORY: /opt/hostedtoolcache
 
@@ -69,10 +69,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up Python 3.10.14
+      - name: Set up Python 3.9.x
         uses: actions/setup-python@v3
         with:
-            python-version: 3.10.14
+            python-version: 3.9.x
         env:
           AGENT_TOOLSDIRECTORY: /opt/hostedtoolcache
 
