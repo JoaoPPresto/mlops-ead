@@ -24,7 +24,7 @@ jobs:
         uses: actions/setup-python@v3
         with:
           python-version: 3.14.0-beta.2
-          cache: "pip"
+
         env:
           AGENT_TOOLSDIRECTORY: /opt/hostedtoolcache
 
@@ -48,7 +48,7 @@ jobs:
         uses: actions/setup-python@v3
         with:
           python-version: 3.14.0-beta.2
-          cache: "pip"
+          
         env:
           AGENT_TOOLSDIRECTORY: /opt/hostedtoolcache
 
