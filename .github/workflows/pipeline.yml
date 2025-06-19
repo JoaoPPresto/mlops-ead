@@ -25,6 +25,8 @@ jobs:
         with:
           python-version: 3.10
           cache: "pip"
+        env:
+          AGENT_TOOLSDIRECTORY: /opt/hostedtoolcache
 
       - name: Install dependencies
         run: |
