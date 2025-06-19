@@ -1,6 +1,6 @@
 fastapi
 uvicorn[standard]
-mlflow@2.2.2
+mlflow[2.2.2]
 scikit-learn
 pandas
 matplotlib
