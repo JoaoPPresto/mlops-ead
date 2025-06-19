@@ -4,6 +4,7 @@ import numpy as np
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
+from dotenv import load_dotenv
 import mlflow
 
 
@@ -46,12 +47,10 @@ async def general_exception_handler(request: Request, exc: Exception):
 # Carregamento do modelo
 def load_model():
     logger.info("Carregando modelo...")
-    tracking_uri = 'https://dagshub.com/renansantosmendes/puc_lectures_mlops.mlflow'
-    # os.getenv("MLFLOW_TRACKING_URI")
-    username = 'renansantosmendes'
-    # os.getenv("MLFLOW_TRACKING_USERNAME")
-    password = '6d730ef4a90b1caf28fbb01e5748f0874fda6077'
-    # os.getenv("MLFLOW_TRACKING_PASSWORD")
+    load_dotenv()
+    tracking_uri = os.getenv("MLFLOW_TRACKING_URI")
+    username = os.getenv("MLFLOW_TRACKING_USERNAME")
+    password = os.getenv("MLFLOW_TRACKING_PASSWORD")
 
     if not all([tracking_uri, username, password]):
         raise EnvironmentError("Credenciais do MLflow não configuradas corretamente.")

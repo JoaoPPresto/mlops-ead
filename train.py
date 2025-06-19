@@ -9,6 +9,7 @@ from keras.layers import Dense, InputLayer
 from keras.models import Sequential
 from sklearn import preprocessing
 from sklearn.model_selection import train_test_split
+from dotenv import load_dotenv
 
 
 def reset_seeds():
@@ -104,28 +105,11 @@ def create_model(X):
 
 
 def config_mlflow():
-    """
-    Configures the MLflow settings for tracking experiments.
+    load_dotenv()
 
-    Sets the MLFLOW_TRACKING_USERNAME and MLFLOW_TRACKING_PASSWORD environment
-     variables to provide authentication for accessing the MLflow tracking server.
-
-    Sets the MLflow tracking URI to 'https://dagshub.com/renansantosmendes/mlops-ead.mlflow'
-    to specify the location where the experiment data will be logged.
-
-    Enables autologging of TensorFlow models by calling `mlflow.tensorflow.autolog()`.
-    This will automatically log the TensorFlow models, input examples, and model signatures
-    during training.
-
-    Parameters:
-        None
-
-    Returns:
-        None
-    """
-    os.environ['MLFLOW_TRACKING_USERNAME'] = 'renansantosmendes'
-    os.environ['MLFLOW_TRACKING_PASSWORD'] = '6d730ef4a90b1caf28fbb01e5748f0874fda6077'
-    mlflow.set_tracking_uri('https://dagshub.com/renansantosmendes/puc_lectures_mlops.mlflow')
+    os.environ['MLFLOW_TRACKING_USERNAME'] = os.getenv("MLFLOW_TRACKING_USERNAME")
+    os.environ['MLFLOW_TRACKING_PASSWORD'] = os.getenv("MLFLOW_TRACKING_PASSWORD")
+    mlflow.set_tracking_uri(os.getenv("MLFLOW_TRACKING_URI"))
 
     mlflow.tensorflow.autolog(log_models=True,
                               log_input_examples=True,
