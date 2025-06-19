@@ -6,9 +6,11 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel, Field
 import mlflow
 
+
 # Configuração de logging
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
+
 
 # Inicialização do app
 app = FastAPI(
@@ -19,6 +21,7 @@ app = FastAPI(
     ]
 )
 
+
 # Modelo de entrada com validação
 class FetalHealthData(BaseModel):
     accelerations: float = Field(..., ge=0)
@@ -26,11 +29,13 @@ class FetalHealthData(BaseModel):
     uterine_contractions: float = Field(..., ge=0)
     severe_decelerations: float = Field(..., ge=0)
 
+
 # Tratamento de exceções genéricas
 @app.exception_handler(Exception)
 async def general_exception_handler(request: Request, exc: Exception):
     logger.error(f"Erro inesperado: {exc}")
     return JSONResponse(status_code=500, content={"error": "Erro interno no servidor"})
+
 
 # Carregamento do modelo
 def load_model():
@@ -56,15 +61,18 @@ def load_model():
     logger.info("Modelo carregado com sucesso.")
     return model
 
+
 # Evento de inicialização
 @app.on_event("startup")
 def startup_event():
     app.state.model = load_model()
 
+
 # Endpoint de saúde
 @app.get("/", tags=["Health"])
 def api_health():
     return {"status": "healthy"}
+
 
 # Endpoint de predição
 @app.post("/predict", tags=["Prediction"])
