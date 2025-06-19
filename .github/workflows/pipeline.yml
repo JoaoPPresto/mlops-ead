@@ -2,7 +2,7 @@ name: Train-Pipeline
 
 on:
   push:
-    
+
   pull_request:
     branches:
     - layers
@@ -21,10 +21,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up Python 3.9.0
+      - name: Set up Python 3.13.5
         uses: actions/setup-python@v3
         with:
-          python-version: 3.9.0
+          python-version: 3.13.5
 
         env:
           AGENT_TOOLSDIRECTORY: /opt/hostedtoolcache
@@ -45,10 +45,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up Python 3.9.0
+      - name: Set up Python 3.13.5
         uses: actions/setup-python@v3
         with:
-          python-version: 3.9.0
+          python-version: 3.13.5
         env:
           AGENT_TOOLSDIRECTORY: /opt/hostedtoolcache
 
@@ -69,10 +69,10 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Set up Python 3.9.0
+      - name: Set up Python 3.13.5
         uses: actions/setup-python@v3
         with:
-            python-version: 3.9.0
+            python-version: 3.13.5
         env:
           AGENT_TOOLSDIRECTORY: /opt/hostedtoolcache
 
