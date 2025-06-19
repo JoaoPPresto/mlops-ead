@@ -16,8 +16,14 @@ logger = logging.getLogger(__name__)
 app = FastAPI(
     title="Fetal Health API",
     openapi_tags=[
-        {"name": "Health", "description": "Get API health"},
-        {"name": "Prediction", "description": "Model prediction"}
+        {
+            "name": "Health",
+            "description": "Get API health"
+        },
+        {
+            "name": "Prediction",
+            "description": "Model prediction"
+        }
     ]
 )
 
